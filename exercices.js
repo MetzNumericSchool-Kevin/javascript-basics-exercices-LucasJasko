@@ -63,3 +63,7 @@ for (let i = 0; i < tableau_potions.length; i++) {
 // Ajout d'une nouvelle potion
 tableau_potions.push("Potion de faiblesse");
 console.log(tableau_potions);
+
+// Finaly, nope.
+tableau_potions.pop("Potion de faiblesse");
+console.log(tableau_potions);
