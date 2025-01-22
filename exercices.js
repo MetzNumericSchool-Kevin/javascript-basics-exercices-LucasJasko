@@ -19,16 +19,16 @@ let choix = prompt(`Bienvenue dans mon humble boutique Aventurier. Que veux-tu s
 3. Le prix d'un potion de soin
 4. La quantité de potion de soin en stock`);
 switch (choix) {
-  case 1:
+  case "1":
     console.log(`Le nom de la boutique est ${nom_boutique}`);
     break;
-  case 2:
+  case "2":
     console.log(`Le nom du sorcier est ${nom_sorcier} 🧙‍♂️`);
     break;
-  case 3:
+  case "3":
     console.log(`Le prix d'une potion de soin est ${prix_potion} 🪙`);
     break;
-  case 4:
+  case "4":
     console.log(`La quantité de potion de soin en stock est ${nombre_potions_stock}`);
     break;
   default:
@@ -38,3 +38,13 @@ switch (choix) {
 // Calcul du prix total d'une commande de potion 🪙
 let qté = prompt(`Combien de potion(s) désires-tu?`);
 console.log(`Prix de ${qté} potions de soins : ${prix_potion * qté} 🪙 mon cher Aventurier. 💸`);
+
+// Bourse de l'Aventurier 💰
+let bourse_aventurier = 6;
+if (prix_potion * qté <= bourse_aventurier && nombre_potions_stock - qté >= 0) {
+  nombre_potions_stock = nombre_potions_stock - qté;
+} else if (prix_potion * qté > bourse_aventurier) {
+  console.log("Désolé aventurier, tu n'a pas assez d'argent !");
+} else if (nombre_potions_stock - qté < 0) {
+  console.log("Désolé aventurier, je n'ai pas assez de potion !");
+}
