@@ -51,22 +51,22 @@ let bourse_aventurier = 6;
 
 // Liste des potions
 const tableau_potions = ["Potion de soin", "Potion de magie", "Potion d'endurance"];
-console.table(tableau_potions);
+// console.table(tableau_potions);
 
 // Affichage des potions
-console.log(tableau_potions[0]);
-console.log(Array(tableau_potions).length);
-for (let i = 0; i < tableau_potions.length; i++) {
-  console.log(`Nous avons de la ${tableau_potions[i]} !`);
-}
+// console.log(tableau_potions[0]);
+// console.log(Array(tableau_potions).length);
+// for (let i = 0; i < tableau_potions.length; i++) {
+//   console.log(`Nous avons de la ${tableau_potions[i]} !`);
+// }
 
 // Ajout d'une nouvelle potion
 tableau_potions.push("Potion de faiblesse");
-console.log(tableau_potions);
+// console.log(tableau_potions);
 
 // Finaly, nope.
 tableau_potions.pop("Potion de faiblesse");
-console.log(tableau_potions);
+// console.log(tableau_potions);
 
 // Rangeons les informations de la potion de soin dans un objet 🧹
 let info_potion_soin = {
@@ -74,11 +74,11 @@ let info_potion_soin = {
   prix: 2,
   stock: 40,
 };
-console.log(info_potion_soin);
+// console.log(info_potion_soin);
 
 // Affichons les informations de la potion
-console.log(info_potion_soin.nom);
-console.log(info_potion_soin["prix"]);
+// console.log(info_potion_soin.nom);
+// console.log(info_potion_soin["prix"]);
 
 // C'est l'heure de faire l'inventaire...
 let info_potion_magie = {
@@ -97,19 +97,94 @@ let info_potion_faiblesse = {
   stock: 15,
 };
 let inventaire = [info_potion_soin, info_potion_magie, info_potion_endurance, info_potion_faiblesse];
-console.log(inventaire);
+// console.log(inventaire);
 
 // Aventurier, regarde tout ce que je vends !
+// for (let i = 0; i < inventaire.length; i++) {
+//   console.log(`- Nom: ${inventaire[i].nom}`);
+//   console.log(`- Prix: ${inventaire[i].prix}`);
+//   console.log(`- En stock: ${inventaire[i].stock}`);
+//   console.log("========================================");
+// }
+// for (let i = 0; i < inventaire.length; i++) {
+//   for (key in inventaire[i]) {
+//     console.log(inventaire[i][key]);
+//   }
+//   console.log("========================================");
+// }
 
-for (let i = 0; i < inventaire.length; i++) {
-  console.log(`- Nom: ${inventaire[i].nom}`);
-  console.log(`- Prix: ${inventaire[i].prix}`);
-  console.log(`- En stock: ${inventaire[i].stock}`);
-  console.log("========================================");
-}
-for (let i = 0; i < inventaire.length; i++) {
-  for (key in inventaire[i]) {
-    console.log(inventaire[i][key]);
-  }
-  console.log("========================================");
+// L'heure est venu pour moi d'être un grand marchand de potion !
+bourse_aventurier = 100;
+let bourse_marchand = 0;
+
+info_potion_soin = {
+  nom: "Potion de soin",
+  prix: 40,
+  stock: 1,
+};
+info_potion_endurance = {
+  nom: "Potion d'endurance",
+  prix: 20,
+  stock: 1,
+};
+info_potion_magie = {
+  nom: "Potion de magie",
+  prix: 20,
+  stock: 2,
+};
+
+inventaire = [info_potion_soin, info_potion_endurance, info_potion_magie];
+let inventaire_aventurier = [];
+
+let choix = prompt(`Fais ton choix:
+1. Acheter une potion
+2. Vendre une potion
+3. Quitter
+`);
+
+switch (choix) {
+  case "1":
+    let prompt_text = `Quel potion désire-tu acheter:
+    `;
+    for (let i = 0; i < inventaire.length; i++) {
+      if (inventaire[i]["stock"] > 0) {
+        prompt_text += `${i + 1}. ${inventaire[i]["nom"]}
+    `;
+      }
+    }
+    let choix_potion = prompt(prompt_text);
+    let choix_quantité = prompt(`Quel quantité de ${inventaire[choix_potion - 1]["nom"]} désire-tu?`);
+    if (inventaire[choix_potion - 1]["stock"] - choix_quantité < 0) {
+      console.log(
+        `Désolé aventurier, je n'ai pas assez de ${inventaire[choix_potion - 1]["nom"]} en stock pour toi. Il m'en reste ${
+          inventaire[choix_potion - 1]["stock"]
+        } en stock.`
+      );
+    } else {
+      let prix_potion = inventaire[choix_potion - 1]["prix"];
+      let nom_potion = inventaire[choix_potion - 1]["nom"];
+      let stock_potion_marchand = inventaire[choix_potion - 1]["stock"];
+
+      bourse_aventurier -= choix_quantité * prix_potion;
+      bourse_marchand += choix_quantité * prix_potion;
+      stock_potion_marchand -= choix_quantité;
+
+      if (!inventaire_aventurier[nom_potion]) {
+        let nouvelle_potion = {
+          nom: nom_potion,
+          stock: choix_quantité,
+        };
+        inventaire_aventurier.push(nouvelle_potion);
+      } else {
+        let stock_potion_aventurier = inventaire_aventurier[choix_potion - 1]["stock"];
+        stock_potion_aventurier += choix_quantité;
+      }
+      console.log(inventaire_aventurier);
+      alert("La transaction est faite !");
+    }
+    break;
+  case "2":
+  // à venir
+  case "3":
+  // à venir
 }
