@@ -40,7 +40,7 @@
 // console.log(`Prix de ${qté} potions de soins : ${prix_potion * qté} 🪙 mon cher Aventurier. 💸`);
 
 // Bourse de l'Aventurier 💰
-// let bourse_aventurier = 6;
+let bourse_aventurier = 6;
 // if (prix_potion * qté <= bourse_aventurier && nombre_potions_stock - qté >= 0) {
 //   nombre_potions_stock = nombre_potions_stock - qté;
 // } else if (prix_potion * qté > bourse_aventurier) {
@@ -69,7 +69,7 @@ tableau_potions.pop("Potion de faiblesse");
 console.log(tableau_potions);
 
 // Rangeons les informations de la potion de soin dans un objet 🧹
-const info_potion_soin = {
+let info_potion_soin = {
   nom: "Potion de soin",
   prix: 2,
   stock: 40,
@@ -81,22 +81,22 @@ console.log(info_potion_soin.nom);
 console.log(info_potion_soin["prix"]);
 
 // C'est l'heure de faire l'inventaire...
-const info_potion_magie = {
+let info_potion_magie = {
   nom: "Potion de magie",
   prix: 2,
   stock: 20,
 };
-const info_potion_endurance = {
+let info_potion_endurance = {
   nom: "Potion de endurance",
   prix: 3,
   stock: 10,
 };
-const info_potion_faiblesse = {
+let info_potion_faiblesse = {
   nom: "Potion de faiblesse",
   prix: 6,
   stock: 15,
 };
-const inventaire = [info_potion_soin, info_potion_magie, info_potion_endurance, info_potion_faiblesse];
+let inventaire = [info_potion_soin, info_potion_magie, info_potion_endurance, info_potion_faiblesse];
 console.log(inventaire);
 
 // Aventurier, regarde tout ce que je vends !
