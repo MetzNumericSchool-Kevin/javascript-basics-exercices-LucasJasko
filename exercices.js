@@ -98,3 +98,18 @@ const info_potion_faiblesse = {
 };
 const inventaire = [info_potion_soin, info_potion_magie, info_potion_endurance, info_potion_faiblesse];
 console.log(inventaire);
+
+// Aventurier, regarde tout ce que je vends !
+
+for (let i = 0; i < inventaire.length; i++) {
+  console.log(`- Nom: ${inventaire[i].nom}`);
+  console.log(`- Prix: ${inventaire[i].prix}`);
+  console.log(`- En stock: ${inventaire[i].stock}`);
+  console.log("========================================");
+}
+for (let i = 0; i < inventaire.length; i++) {
+  for (key in inventaire[i]) {
+    console.log(inventaire[i][key]);
+  }
+  console.log("========================================");
+}
