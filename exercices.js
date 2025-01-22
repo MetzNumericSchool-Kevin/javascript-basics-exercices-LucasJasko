@@ -48,3 +48,7 @@ if (prix_potion * qté <= bourse_aventurier && nombre_potions_stock - qté >= 0)
 } else if (nombre_potions_stock - qté < 0) {
   console.log("Désolé aventurier, je n'ai pas assez de potion !");
 }
+
+// Liste des potions
+const tableau_potions = ["Potion de soin", "Potion de magie", "Potion d'endurance"];
+console.table(tableau_potions);
