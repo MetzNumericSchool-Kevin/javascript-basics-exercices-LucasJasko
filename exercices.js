@@ -69,16 +69,32 @@ tableau_potions.pop("Potion de faiblesse");
 console.log(tableau_potions);
 
 // Rangeons les informations de la potion de soin dans un objet 🧹
-let nom_potion = "Potion de soin";
-let prix_potion = 2;
-let stock_potion = 40;
 const info_potion_soin = {
-  nom: nom_potion,
-  prix: prix_potion,
-  stock: stock_potion,
+  nom: "Potion de soin",
+  prix: 2,
+  stock: 40,
 };
 console.log(info_potion_soin);
 
 // Affichons les informations de la potion
 console.log(info_potion_soin.nom);
 console.log(info_potion_soin["prix"]);
+
+// C'est l'heure de faire l'inventaire...
+const info_potion_magie = {
+  nom: "Potion de magie",
+  prix: 2,
+  stock: 20,
+};
+const info_potion_endurance = {
+  nom: "Potion de endurance",
+  prix: 3,
+  stock: 10,
+};
+const info_potion_faiblesse = {
+  nom: "Potion de faiblesse",
+  prix: 6,
+  stock: 15,
+};
+const inventaire = [info_potion_soin, info_potion_magie, info_potion_endurance, info_potion_faiblesse];
+console.log(inventaire);
