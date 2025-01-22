@@ -59,3 +59,7 @@ console.log(Array(tableau_potions).length);
 for (let i = 0; i < tableau_potions.length; i++) {
   console.log(`Nous avons de la ${tableau_potions[i]} !`);
 }
+
+// Ajout d'une nouvelle potion
+tableau_potions.push("Potion de faiblesse");
+console.log(tableau_potions);
