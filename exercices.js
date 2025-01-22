@@ -67,3 +67,14 @@ console.log(tableau_potions);
 // Finaly, nope.
 tableau_potions.pop("Potion de faiblesse");
 console.log(tableau_potions);
+
+// Rangeons les informations de la potion de soin dans un objet 🧹
+let nom_potion = "Potion de soin";
+let prix_potion = 2;
+let stock_potion = 40;
+const detaille_potion = {
+  nom: nom_potion,
+  prix: prix_potion,
+  stock: stock_potion,
+};
+console.log(detaille_potion);
