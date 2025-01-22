@@ -72,9 +72,13 @@ console.log(tableau_potions);
 let nom_potion = "Potion de soin";
 let prix_potion = 2;
 let stock_potion = 40;
-const detaille_potion = {
+const info_potion_soin = {
   nom: nom_potion,
   prix: prix_potion,
   stock: stock_potion,
 };
-console.log(detaille_potion);
+console.log(info_potion_soin);
+
+// Affichons les informations de la potion
+console.log(info_potion_soin.nom);
+console.log(info_potion_soin["prix"]);
